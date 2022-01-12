@@ -17,10 +17,6 @@ describe("Cart actions suite", () => {
         })
     })
 
-    after(function(){
-        cy.visit('')
-    })
-
     it('Can add chair to cart from Header Menu', () => {
         Navbar.clickChairs()
         ProductsPage.isLoaded()
