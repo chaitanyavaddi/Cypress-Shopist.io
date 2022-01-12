@@ -7,8 +7,10 @@
     "waitForAnimation": true,
     "defaultCommandTimeout": 6000,
     "pageLoadTimeout": 60000,
-    "video": false,
+    "video": true,
+    "screenshotsFolder": "cypress/videos",
     "failOnStatusCode": false,
+    "integrationFolder": ".",
 
     "reporter": "cypress-mochawesome-reporter",
     "reporterOptions": {
@@ -19,5 +21,7 @@
         "charts": true,
         "reportPageTitle": "Shopist.io Report",
         "embeddedScreenshots": true
-    }
+    },
+
+    "projectId": "dhyf96"
 }

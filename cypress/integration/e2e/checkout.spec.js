@@ -6,18 +6,18 @@ import ProductDetailsPage from "../../page-objects/pages/ProductDetailsPage"
 import ProductsPage from "../../page-objects/pages/ProductsPage"
 
 describe('Checkout actions suite', () => {
-    let mydata
+    let products
     before(function () {
         HomePage.load()
         cy.fixture('chair-data').then(function (data) {
-            mydata = data
-             return mydata
+            products = data
+             return products
         })
     })
 
     it('Can see error message on invalid coupon', () => {
         Navbar.clickChairs()
-        ProductsPage.clickOnProduct(mydata.product02)
+        ProductsPage.clickOnProduct(products.product02)
         ProductDetailsPage.clickAddToCart()
         Navbar.clickCart()
         CartPage.isLoaded()
@@ -39,6 +39,5 @@ describe('Checkout actions suite', () => {
             .invoke('attr', 'maxlength')
             .should('match', new RegExp(15))  //max. coupon code length
     })
-
 })
 
