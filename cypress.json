@@ -8,5 +8,16 @@
     "defaultCommandTimeout": 6000,
     "pageLoadTimeout": 60000,
     "video": false,
-    "failOnStatusCode": false
+    "failOnStatusCode": false,
+
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "html":true,
+        "overwrite":false,
+        "json": false,
+        "charts": true,
+        "reportPageTitle": "Shopist.io Report",
+        "embeddedScreenshots": true
+    }
 }

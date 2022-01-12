@@ -1,3 +1,4 @@
+// import { invoke } from "cypress/types/lodash"
 import BasePage from "../BasePage"
 
 
@@ -24,12 +25,6 @@ export default class CartPage extends BasePage {
 
     static isLoaded() {
         cy.isVisible(this.productsSection)
-    }
-
-    static testData() {
-        cy.fixture('messages').then(function($data){
-            this.data=$data
-        })
     }
 
     static enterCoupon(code) {

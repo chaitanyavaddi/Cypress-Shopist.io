@@ -1,8 +1,7 @@
 import BasePage from "../BasePage"
 
 export default class ProductDetailsPage extends BasePage {
-
-
+    
     static productName = '.description > :nth-child(1) > :nth-child(1)'
     static addToCart = '.purchase-button'
     static productPrice = '.price'

@@ -42,7 +42,3 @@ describe('Checkout actions suite', () => {
 
 })
 
-
-
-
-

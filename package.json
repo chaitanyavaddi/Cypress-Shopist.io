@@ -4,15 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open --reporter mochawesome",
+    "cypress:runDefault": "cypress run --spec cypress/integration/e2e/cart.spec.js",
+    "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/e2e/*.spec.js",
+    "cypress:edge": "cypress run --browser edge --spec cypress/integration/e2e/*.spec.js"
   },
-  "keywords": [],
+  "keywords": [
+    "e2e",
+    "automation",
+    "framework",
+    "cypress"],
   "author": "Chaitanya Vaddisriram",
   "license": "ISC",
   "dependencies": {
     "cypress": "^9.2.0"
   },
   "devDependencies": {
+    "cypress-mochawesome-reporter": "^2.3.0",
     "cypress-xpath": "^1.6.2"
   }
 }

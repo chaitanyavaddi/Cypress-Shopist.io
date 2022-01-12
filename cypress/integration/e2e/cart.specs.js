@@ -17,7 +17,7 @@ describe("Cart actions suite", () => {
         })
     })
 
-    xit('Can add chair to cart from Header Menu', () => {
+    it('Can add chair to cart from Header Menu', () => {
         Navbar.clickChairs()
         ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product01)
@@ -25,7 +25,7 @@ describe("Cart actions suite", () => {
         Navbar.verifyCartCount('(1)')
     })
 
-    xit('Can add chair to cart from Body Categories', () => {
+    it('Can add chair to cart from Body Categories', () => {
         Navbar.clickLogo()
         HomePage.clickChairs()
         ProductsPage.clickOnProduct(chairsData.product02)
@@ -33,14 +33,14 @@ describe("Cart actions suite", () => {
         Navbar.verifyCartCount('(1)')
     })
 
-    xit('Can add chair to cart from Footer Menu', () => {
+    it('Can add chair to cart from Footer Menu', () => {
         Footer.clickChairs()
         ProductsPage.clickOnProduct(chairsData.product03)
         ProductDetailsPage.clickAddToCart()
         Navbar.verifyCartCount('(1)')
     })
 
-    xit('Can see same name & price in cart page as in detailed view', function () {
+    it('Can see same name & price in cart page as in detailed view', function () {
         Navbar.clickChairs()
         ProductsPage.clickOnProduct(chairsData.product04)
         cy.then(() => {
@@ -103,6 +103,7 @@ describe("Cart actions suite", () => {
         Navbar.verifyCartCount('(2)')
         Navbar.clickCart()
         //check carts page wheteher two products are displayed
+        CartPage.isLoaded()
     })
 
     it("Can see SOLD OUT msg when trying to add sold-out chair to cart", () => {
