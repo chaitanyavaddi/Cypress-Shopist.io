@@ -1,0 +1,5 @@
+{
+    "soldOutMessage": "Oops! This item is sold out",
+    "emptyCartMessage": "Your cart is currently empty.",
+    "invalidCouponMessage": "Coupon is invalid"
+}

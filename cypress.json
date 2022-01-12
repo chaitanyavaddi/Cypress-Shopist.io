@@ -1,0 +1,12 @@
+{
+    "baseUrl": "https://www.shopist.io",
+    "viewportWidth": 1366,
+    "viewportHeight": 768,
+    "watchForFilesChanges": false,
+    "chromeWebSecurity": false,
+    "waitForAnimation": true,
+    "defaultCommandTimeout": 6000,
+    "pageLoadTimeout": 60000,
+    "video": false,
+    "failOnStatusCode": false
+}
