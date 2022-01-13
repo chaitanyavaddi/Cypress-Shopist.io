@@ -23,5 +23,10 @@
         "embeddedScreenshots": true
     },
 
+    "retries":{
+        "runMode":1,
+        "openMode":4
+    },
+
     "projectId": "dhyf96"
 }
