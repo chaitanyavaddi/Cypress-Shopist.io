@@ -18,7 +18,7 @@ To run cart actions tests in normal mode use following command
 
 ## Video Explanation
 
-[click here to see the video](https://www.codelikedude.com)
+[click here to see the video](https://www.codelikedude.com/cypress-project/)
 
 ![App Screenshot](https://codelikedude.com/wp-content/uploads/2022/01/Screenshot-2022-01-14-at-7.51.15-AM-1024x572.png)
 
