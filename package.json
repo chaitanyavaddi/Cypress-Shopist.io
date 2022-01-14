@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open --reporter mochawesome",
-    "cypress:runDefault": "cypress run --spec cypress/integration/e2e/*.spec.js",
-    "cypress:chrome": "cyprruness  --browser chrome --spec cypress/integration/e2e/*.spec.js",
-    "cypress:edge": "cypress run --browser edge --spec cypress/integration/e2e/*.spec.js",
-    "cypress:run-headless": "cypress run --headless --browser chrome --spec cypress/integration/e2e/*.spec.js --record --key beca6573-6a7b-430a-9368-5e12290da0da"
+    "cy:open-dashboard": "cypress open",
+    "cy:open": "cypress open --reporter mochawesome",
+    "cy:run-all": "cypress run --spec cypress/integration/e2e/*.spec.js",
+    "cy:chrome": "cyprruness  --browser chrome --spec cypress/integration/e2e/*.spec.js",
+    "cy:edge": "cypress run --browser edge --spec cypress/integration/e2e/*.spec.js",
+    "cy:run-headless": "cypress run --headless --browser chrome --spec cypress/integration/e2e/*.spec.js --record --key beca6573-6a7b-430a-9368-5e12290da0da"
   },
   "keywords": [
     "e2e",

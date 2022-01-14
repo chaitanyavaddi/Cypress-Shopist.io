@@ -17,6 +17,7 @@ export default class CartPage extends BasePage {
     static couponErrorMessage = '[class="discount-toast"]'
     static noProductsIncart = '[class="no-products"]'
     static emptyCartMessage = '.no-products'
+    static checkoutTotalPrice = '.line-total > :nth-child(2)'
 
     
     static load() {
@@ -50,6 +51,10 @@ export default class CartPage extends BasePage {
 
     static removeOneQuantity() {
         cy.get(this.minusButton).click()
+    }
+
+    static invokeCheckoutTotalPrice(){
+        cy.get(this.checkoutTotalPrice).invoke('text').as('checkoutPrice')
     }
 
     static verifyEmptyCartMessage() {

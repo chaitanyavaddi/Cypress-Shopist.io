@@ -7,6 +7,10 @@ export default class BasePage {
     static logInfo(message) {
       cy.log(message)
     }
+
+    static goBack(){
+      cy.go('back')
+    }
   
     static setMobileViewport() {
       cy.viewport('iphone-x')

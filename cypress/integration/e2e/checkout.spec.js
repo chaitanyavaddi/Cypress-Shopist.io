@@ -1,3 +1,4 @@
+// import { expect } from "chai"
 import BasePage from "../../page-objects/BasePage"
 import Navbar from "../../page-objects/components/navbar"
 import CartPage from "../../page-objects/pages/CartPage"
@@ -28,10 +29,21 @@ describe('Checkout actions suite', () => {
     })
 
     it('Can see Total price remain same upon invalid coupon', () =>{
-
+        Navbar.clickChairs()
+        ProductsPage.clickOnProduct(products.product02)
+        ProductDetailsPage.clickAddToCart()
+        CartPage.load()
+        CartPage.isLoaded()
+        cy.get(CartPage.checkoutTotalPrice).invoke('text').as('$priceBeforeInvalidCoupon')
+        CartPage.enterCoupon('12345123451234512345')
+        CartPage.clickApply()
+        cy.get(CartPage.checkoutTotalPrice).invoke('text').as('$priceAfterInvalidCoupon')
+        cy.then(function(){
+            expect(this.$priceBeforeInvalidCoupon).to.equal(this.$priceAfterInvalidCoupon)
+        })
     })
 
-    xit('Can enter only a max. of 15 characters in discounts box', () => {
+    it('Can enter only a max. of 15 characters in discounts box', () => {
         CartPage.load()
         CartPage.isLoaded()
         CartPage.enterCoupon('12345123451234512345')

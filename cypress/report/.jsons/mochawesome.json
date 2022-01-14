@@ -1,0 +1,51 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-01-14T03:25:24.035Z",
+    "end": "2022-01-14T03:25:24.039Z",
+    "duration": 4,
+    "testsRegistered": 0,
+    "passPercent": null,
+    "pendingPercent": null,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    false
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/.jsons",
+        "html": false,
+        "overwrite": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Shopist.io Report",
+        "embeddedScreenshots": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

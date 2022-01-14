@@ -1,4 +1,5 @@
 
+import BasePage from "../../page-objects/BasePage"
 import Footer from "../../page-objects/components/footer"
 import Navbar from "../../page-objects/components/navbar"
 import CartPage from "../../page-objects/pages/CartPage"
@@ -21,21 +22,27 @@ describe("Cart actions suite", () => {
         Navbar.clickChairs()
         ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product01)
+        ProductDetailsPage.isLoaded()
         ProductDetailsPage.clickAddToCart()
         Navbar.verifyCartCount('(1)')
     })
 
     it('Can add chair to cart from Body Categories', () => {
         Navbar.clickLogo()
-        HomePage.clickChairs()
+        HomePage.isLoaded()
+        HomePage.clickChairsCard()
+        ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product02)
+        ProductDetailsPage.isLoaded()
         ProductDetailsPage.clickAddToCart()
         Navbar.verifyCartCount('(1)')
     })
 
     it('Can add chair to cart from Footer Menu', () => {
         Footer.clickChairs()
+        ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product03)
+        ProductDetailsPage.isLoaded()
         ProductDetailsPage.clickAddToCart()
         Navbar.verifyCartCount('(1)')
     })
@@ -63,6 +70,30 @@ describe("Cart actions suite", () => {
             Navbar.clickCart()
             cy.get(CartPage.productImage).invoke('attr', 'src').then(($actualImage) => {
                 expect($actualImage).to.equal($expectedImage)
+            })
+        })
+    })
+
+    it('Can see same multiple chair images in cart as in detailed page',() => {
+        Navbar.clickChairs()
+        ProductsPage.clickOnProduct(chairsData.product01)
+        ProductDetailsPage.clickAddToCart()
+        cy.get(ProductDetailsPage.productImage).invoke('attr', 'src').then(($expectedImage) => {
+            Navbar.clickCart()
+            cy.get(CartPage.productImage).invoke('attr', 'src').then(($actualImage) => {
+                expect($actualImage).to.equal($expectedImage)
+                CartPage.removeOneQuantity()
+            }).then(function() {
+                Navbar.clickChairs()
+                ProductsPage.isLoaded()
+                ProductsPage.clickOnProduct(chairsData.product04)
+                ProductDetailsPage.clickAddToCart()
+                cy.get(ProductDetailsPage.productImage).invoke('attr', 'src').then(($expectedImage01) =>{
+                    Navbar.clickCart()
+                    cy.get(CartPage.productImage).invoke('attr', 'src').then(($actualImage01) => {
+                        expect($actualImage01).to.equal($expectedImage01)
+                })
+              })
             })
         })
     })
@@ -102,12 +133,12 @@ describe("Cart actions suite", () => {
         ProductDetailsPage.clickAddToCart()
         Navbar.verifyCartCount('(2)')
         Navbar.clickCart()
-        //check carts page wheteher two products are displayed
         CartPage.isLoaded()
     })
 
     it("Can see SOLD OUT msg when trying to add sold-out chair to cart", () => {
         Navbar.clickChairs()
+        ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product08)
         ProductsPage.verifySoldOutMessage()
     })
@@ -124,9 +155,11 @@ describe("Cart actions suite", () => {
 
     it('Can remove chair from cart and see empty cart message', () => {
         Navbar.clickChairs()
+        ProductsPage.isLoaded()
         ProductsPage.clickOnProduct(chairsData.product02)
         ProductDetailsPage.clickAddToCart()
         Navbar.clickCart()
+        CartPage.isLoaded()
         CartPage.removeOneQuantity()
         CartPage.verifyEmptyCartMessage()
     })

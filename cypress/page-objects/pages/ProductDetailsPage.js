@@ -6,6 +6,11 @@ export default class ProductDetailsPage extends BasePage {
     static addToCart = '.purchase-button'
     static productPrice = '.price'
     static productImage = 'img.product-card'
+    static productLayout = '.item'
+
+    static isLoaded(){
+        cy.isVisible(this.productLayout)
+    }
 
     static clickAddToCart() {
         cy.get(this.addToCart).click()
